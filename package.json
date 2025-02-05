@@ -2,14 +2,15 @@
   "name": "mydefporfolio",
   "type": "module",
   "version": "0.0.1",
-"scripts": {
-  "dev": "astro dev",
-  "build": "astro build",
-  "preview": "astro preview",
-  "start": "bun run server & astro preview",
-  "astro": "astro"
-},
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "start": "bun run server & astro preview",
+    "astro": "astro"
+  },
   "dependencies": {
+    "@astrojs/node": "^9.0.2",
     "@astrojs/react": "^4.2.0",
     "astro": "^5.2.5",
     "swiper": "^11.2.2"
