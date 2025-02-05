@@ -1,25 +1,17 @@
 import express from "express";
 import dotenv from "dotenv";
 import nodemailer from "nodemailer";
-import { fileURLToPath } from "url";
-import { dirname, join } from "path";
-import serveStatic from "serve-static";
+import { handler as ssrHandler } from "./dist/server/entry.mjs"; // Importa Astro SSR
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
 
-// 📌 Ruta de archivos estáticos (sirviendo Astro)
-const __dirname = dirname(fileURLToPath(import.meta.url));
-app.use(serveStatic(join(__dirname, "dist")));
+// Servir archivos estáticos de Astro
+app.use(express.static("dist/client"));
 
-// 📌 Redirigir todas las rutas a Astro
-app.get("*", (req, res) => {
-  res.sendFile(join(__dirname, "dist", "index.html"));
-});
-
-// 📌 Ruta para enviar correos
+// Ruta para enviar correos
 app.post("/api/sendEmail", async (req, res) => {
   const { name, subject, email, message } = req.body;
 
@@ -50,7 +42,9 @@ app.post("/api/sendEmail", async (req, res) => {
   }
 });
 
-// 📌 Iniciar servidor en Render
+// ⚠️ Importante: Manejar todas las rutas con Astro SSR
+app.use("*", ssrHandler);
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en el puerto ${PORT}`);

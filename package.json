@@ -3,9 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "bun run astro dev",
-    "build": "bun run astro build",
-    "preview": "bun run astro preview",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
     "start": "node server.js"
   },
   "dependencies": {
