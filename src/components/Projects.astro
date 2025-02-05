@@ -1,0 +1,181 @@
+---
+import Carousel from "../components/Carousel.jsx";
+
+import NODEJS from "./icons/NodeJS.astro";
+import REACT from "./icons/React.astro";
+import HTML from "./icons/Html.astro";
+import BOOTSTRAP from "./icons/Bootstrap.astro";
+import MYSQL from "./icons/MySQL.astro";
+import CSS from "./icons/Css.astro";
+import SASS from "./icons/Sass.astro";
+import JAVASCRIPT from "./icons/JavaScript.astro";
+import TAILWIND from "./icons/TailwindCSS.astro";
+
+const TAGS = {
+  NODE: {
+    name: "Node.js",
+    class: "bg-black text-green",
+    icon: NODEJS
+  },
+  REACT: {
+    name: "React",
+    class: "bg-black text-blue",
+    icon: REACT
+  },
+  HTML: {
+    name: "HTML",
+    class: "bg-black text-orange",
+    icon: HTML
+  },
+  BOOTRSAP: {
+    name: "Bootstrap",
+    class: "bg-black text-purple",
+    icon: BOOTSTRAP
+  },
+  MYSQL: {
+    name: "MySQL",
+    class: "bg-black text-blue",
+    icon: MYSQL
+  },
+  CSS: {
+    name: "CSS",
+    class: "bg-black text-blue",
+    icon: CSS
+  },
+  SASS: {
+    name: "SASS",
+    class: "bg-black text-blue",
+    icon: SASS
+  },
+  JAVASCRIPT: {
+    name: "JavaScript",
+    class: "bg-black text-blue",
+    icon: JAVASCRIPT
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-black text-blue",
+    icon: TAILWIND
+  },
+};
+
+const PROJECTS = [
+/*    {
+    title: "Web for Kakeibo",
+    description:
+      "Web de ahorro, permite añadir objetivos de ahorros, registrar movimientos de dinero (gasto o ahorro) y añadirlo a una categoria. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/barber1.webp",
+      "/projects/barber2.webp",
+      "/projects/barber3.webp",
+      "/projects/barber4.webp",
+      "/projects/barber5.webp",
+      "/projects/barber6.webp",
+      "/projects/barber7.webp",
+      "/projects/barber8.webp",
+    ],
+    tags: [TAGS.NODE, TAGS.REACT, TAGS.HTML, TAGS.BOOTRSAP, TAGS.MYSQL, TAGS.JAVASCRIPT, TAGS.TAILWIND],
+  },  */
+  {
+    title: "Web for Barber",
+    description:
+      "Web de barbería, donde se muestran los peluqueros, fotos de los clientes y valoraciones de los clientes. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/barber1.webp",
+      "/projects/barber2.webp",
+      "/projects/barber3.webp",
+      "/projects/barber4.webp",
+      "/projects/barber5.webp",
+      "/projects/barber6.webp",
+      "/projects/barber7.webp",
+      "/projects/barber8.webp",
+    ],
+    tags: [TAGS.NODE, TAGS.REACT, TAGS.HTML, TAGS.BOOTRSAP, TAGS.MYSQL, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "Web for Beauty",
+    description:
+      "Web de belleza, donde se muestran los empleados, fotos de los clientes, precios, marcas de productos con los que trabajan y permite pedir una cita online. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/beauty1.webp",
+      "/projects/beauty2.webp",
+      "/projects/beauty3.webp",
+      "/projects/beauty4.webp",
+      "/projects/beauty5.webp",
+      "/projects/beauty6.webp",
+    ],
+    tags: [TAGS.NODE, TAGS.REACT, TAGS.HTML, TAGS.BOOTRSAP, TAGS.MYSQL, TAGS.JAVASCRIPT],
+  },
+
+  {
+    title: "Web for Industry",
+    description:
+      "Web de construcción, que muestre galería de otros trabajos, trabajadores y sus especialidades o información sobre su perfil y permite comprar los servicios a través de la web. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/industry1.webp",
+      "/projects/industry2.webp",
+      "/projects/industry3.webp",
+      "/projects/industry4.webp",
+      "/projects/industry5.webp",
+      "/projects/industry6.webp",
+      "/projects/industry7.webp",
+    ],
+    tags: [TAGS.NODE, TAGS.REACT, TAGS.HTML, TAGS.BOOTRSAP, TAGS.MYSQL, TAGS.JAVASCRIPT],
+  },
+  {
+    title: "Webs Grid",
+    description:
+      "Webs visual hecha con CSS Grid para ubicar las celdas de cada imagen con su texto debajo. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/visualize.webp",
+      "/projects/marvel.webp",
+    ],
+    tags: [ TAGS.HTML, TAGS.SASS],
+  },
+  {
+    title: "Web Elegant",
+    description:
+      "Webs Elegant que simula un comercio online, donde se puede ver los trabajos que se realizan, los más recientes, con un menú que contiene el contacto, portfolio o las características. Utilizando las siguientes tecnologías:",
+    link: "#",
+    github: "#",
+    images: [
+      "/projects/elegant1.webp",
+      "/projects/elegant2.webp",
+    ],
+    tags: [ TAGS.HTML, TAGS.CSS],
+  },
+];
+---
+
+{PROJECTS.map(({ title, description, images, tags }) => (
+  <article class="p-4 rounded-lg shadow-lg bg-black/70 mb-6 shadow-white/30 
+                  md:p-6 md:max-w-3xl lg:max-w-4xl xl:max-w-5xl mx-auto">
+    <h3 class="text-2xl md:text-3xl font-semibold text-purple-300/90 mb-4 text-center">{title}</h3>
+    <p class="text-lg md:text-xl text-gray-300 mb-4 text-center md:text-left">{description}</p>
+    <ul class="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+      {tags.map((tag) => (
+        <li>
+          <span class={`flex items-center gap-x-2 rounded-full text-xs md:text-sm
+                        ${tag.class} py-1 px-3 md:py-2 md:px-4`}>
+            <tag.icon class="size-4 md:size-5" />
+            {tag.name}
+          </span>
+        </li>
+      ))}
+    </ul>
+
+    {/*  Integración del carrusel */}
+    <Carousel images={images} client:load />
+
+  </article>
+))}

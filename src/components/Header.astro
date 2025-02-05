@@ -1,0 +1,75 @@
+---
+import ContactModal from "./ContactModal.astro"
+---
+<header class="fixed top-0 left-0 w-full bg-black/50 backdrop-blur-md z-50 flex justify-center items-center py-4 px-4 md:px-10">
+  <nav class="hidden md:flex flex-row gap-x-6 md:gap-x-10 opacity-80 text-white mt-2">
+    <a href="" class="transition-all duration-300 transform hover:scale-110">Inicio</a>
+    <a href="#experiencia" class="transition-all duration-300 transform hover:scale-110">Experiencia</a>
+    <a href="#proyectos" class="transition-all duration-300 transform hover:scale-110">Proyectos</a>
+    <a href="#sobre-mi" class="transition-all duration-300 transform hover:scale-110">Sobre mí</a>
+    <a href="#" data-modal="contact-modal" class="transition-all duration-300 transform hover:scale-110">Contacto</a>
+  </nav>
+  
+  
+  <!-- Menú hamburguesa para móviles -->
+  <div class="md:hidden flex items-center">
+    <button id="menu-toggle" class="text-white text-2xl">☰</button>
+  </div>
+
+  <!-- Menú desplegable en móviles -->
+  <nav id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-black/90 text-white flex flex-col items-center py-4 space-y-4">
+    <a href="" class="block">Inicio</a>
+    <a href="#experiencia" class="block">Experiencia</a>
+    <a href="#proyectos" class="block">Proyectos</a>
+    <a href="#sobre-mi" class="block">Sobre mí</a>
+    <a href="#" data-modal="contact-modal" class="block">Contacto</a> <!-- Enlace móvil para abrir el modal -->
+  </nav>
+</header>
+
+<main class="pt-20">
+  <slot /> 
+</main>
+
+<!-- Aquí se incluye el modal en el mismo archivo -->
+<ContactModal id="contact-modal" />
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // Aquí verificamos si el modal existe antes de manipularlo
+    const modal = document.getElementById("contact-modal");
+
+    if (modal) {
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeModal = modal.querySelector(".close-modal");
+
+      // Abrir el modal cuando se haga clic en los enlaces con el atributo 'data-modal'
+      document.querySelectorAll('[data-modal="contact-modal"]').forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault(); // Evitar que se siga el enlace
+          modal.classList.remove("hidden"); // Mostrar el modal
+        });
+      });
+
+      // Cerrar el modal cuando se haga clic en el botón de cierre o fuera del modal
+      if (closeModal) {
+        closeModal.addEventListener("click", () => {
+          modal.classList.add("hidden"); // Ocultar el modal
+        });
+
+        modal.addEventListener("click", (event) => {
+          if (event.target === modal) {
+            modal.classList.add("hidden"); // Ocultar el modal si se hace clic fuera de él
+          }
+        });
+      }
+
+      // Menú hamburguesa
+      if (menuToggle && mobileMenu) {
+        menuToggle.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+    }
+  });
+</script>

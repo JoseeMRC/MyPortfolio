@@ -1,11 +1,87 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Badge from '../components/Badge.astro';
+import LinkedInIcon from '../components/icons/LinkedIn.astro';
+import SocialPill from '../components/icons/SocialPill.astro';
+import GitHubIcon from '../components/icons/GitHub.astro';
+import MailIcon from '../components/icons/Mail.astro';
+import Experience from '../components/Experience.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import BriefCase from '../components/icons/BriefCase.astro';
+import CodeIcon from '../components/icons/Code.astro';
+import Projects from '../components/Projects.astro';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Portfolio de Jose Manuel · Desarrollador y Programador Web Junior"
+  description="Desarrollador Full Stack, creativo, resolutivo y comprometido."
+>
+  <main class="px-4 md:px-8">
+    <SectionContainer id="sobre-mi"  class="py-32 md:py-44 pb-20 md:pb-32">
+      <div class="relative flex justify-center mb-20 md:mb-36">
+        <img 
+          src="/photo.webp" 
+          alt="Foto de perfil" 
+          class="absolute -top-12 md:-top-16 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover rounded-full shadow-lg shadow-white/50 hover:scale-110 transition-transform duration-300 ease-in-out"
+        >
+      </div>
+      
+      <h1 class="text-white text-2xl md:text-3xl lg:text-5xl font-bold flex justify-center flex-wrap gap-x-4 pb-6 lg:pb-10 text-center">
+        Hola, soy Jose Manuel 
+        <a 
+          href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/" 
+          target="_blank" 
+          rel="noopener" 
+          class="flex justify-center items-center"
+        >
+          <Badge>Disponible para trabajar</Badge>
+        </a>
+      </h1>
+      
+      <h2 class="text-lg md:text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-center mx-auto">
+        <span class="text-green-400/90">+1 de un año de experiencia.</span>
+        <span class="text-purple-300/90"> Desarrollador Web Full Stack.</span>
+        <br> Me considero una persona creativa, que se adapta bien a los cambios, resolutiva, 
+        me desenvuelvo bien trabajando en entornos de equipos, comprometido. 
+        <span class="text-blue-400/90"> Resido en Málaga, España.</span>
+      </h2>
+
+      <nav class="flex gap-4 mt-8 flex-wrap justify-center">
+        <!-- LinkedIn -->
+        <SocialPill href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/">
+          <LinkedInIcon class="size-4 md:size-5 lg:size-6" />
+          LinkedIn 
+        </SocialPill>
+
+        <!-- GitHub -->
+        <SocialPill href="https://github.com/JoseeMRC">
+          <GitHubIcon class="size-4 md:size-5 lg:size-6" />
+          Github
+        </SocialPill>
+
+        <!-- Mail -->
+        <SocialPill href="mailto:00jmrc@gmail.com">
+          <MailIcon class="size-4 md:size-5 lg:size-6" />
+          00jmrc@gmail.com
+        </SocialPill> 
+      </nav>
+    </SectionContainer>
+
+    <SectionContainer id="experiencia">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center">
+        <BriefCase class="size-6 md:size-7"/>
+        Experiencia Laboral
+      </h2>
+      <Experience />
+    </SectionContainer>
+
+    <SectionContainer id="proyectos">
+      <h2 class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center">
+        <CodeIcon class="size-6 md:size-7"/>
+        Proyectos
+      </h2>
+      <Projects />
+    </SectionContainer>
+  </main>
 </Layout>
+

@@ -1,0 +1,65 @@
+<style>
+  @keyframes vibrate-burst {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    10% {
+      transform: translateX(-2px) rotate(-2deg);
+    }
+    20% {
+      transform: translateX(2px) rotate(2deg);
+    }
+    30% {
+      transform: translateX(-2px) rotate(-2deg);
+    }
+    40% {
+      transform: translateX(2px) rotate(2deg);
+    }
+    50% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+
+  .vibrate-burst {
+    animation: vibrate-burst 0.5s ease-in-out; /* Duración de cada ráfaga */
+    animation-delay: 5s; /* Tiempo entre ráfagas */
+    animation-fill-mode: forwards; /* Mantener el estado final estático */
+  }
+
+  .vibrate-burst-repeat {
+    animation: vibrate-burst 0.5s ease-in-out 3; /* 3 ráfagas consecutivas */
+    animation-delay: 5s; /* Tiempo entre cada repetición */
+    animation-fill-mode: forwards; /* Mantener estado final */
+  }
+
+  /* Estilos básicos del botón */
+  .badge-button {
+    display: inline-block;
+    background-color: #22c55e; /* Verde */
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+  }
+
+  /* Efecto hover */
+  .badge-button:hover {
+    background-color: #5627d9; /* Verde más oscuro */
+    color: white; /* Cambio de color del texo */
+    font-weight: bold; /* texto en negrita */
+    font-size: 0.7rem;/* tamaño del texto*/
+    margin-left: 10px; /* Margen izquierdo al pasar el cursor para que no pise el nombre*/
+    transform: scale(1.2); /* Escala el botón ligeramente */
+  }
+
+  /* Efecto de vibración adicional al hover */
+  .badge-button:hover .vibrate-burst-repeat {
+    animation: vibrate-burst 0.5s ease-in-out 1;
+  }
+</style>
+
+<span class="badge-button vibrate-burst-repeat">
+  <slot></slot>
+</span>
