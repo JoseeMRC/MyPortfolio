@@ -1,0 +1,65 @@
+---
+import LineaTempItem from "./LineaTempItem.astro";
+const STUDY = [
+  {
+    date: "Septiembre 2024 - Junio 2025",
+    title: "Máster en Ciberseguridad y Hacking Ético",
+    description: [
+      "· Desarrollar planes de prevención y concienciación en ciberseguridad.",
+      "· Configurar sistemas de control de acceso y autenticación de personas.",
+      "· Diseñar sistemas de cumplimiento normativo.",
+      "· Realizar análisis forenses.",
+      "· Determinar herramientas de monitorización para detectar vulnerabilidades.",
+      "· Detectar problemas de seguridad en aplicaciones para dispositivos móviles."
+    ],
+  },
+  {
+    date: "Enero 2024 - Junio 2024",
+    title: "Junior Full Stack Web Developer [620 horas]",
+    description: [
+      "· Maquetación web, Front-end, Back-end, bases de datos.",
+      "· Manejo del sistema de control de versiones Git.",
+      "· Uso de herramientas de desarrollo como VSCode, Terminal y Consola.",
+      "· Trabajo en equipo y comunicación con GitHub, Teams, Discord, Slack.",
+      "· Desarrollo de proyectos utilizando SCRUM y Agile."
+    ],
+  },
+  {
+    date: "Septiembre 2017 - Febrero 2019",
+    title: "Ciclo formativo de Grado Medio en Sistemas Microinformáticos y Redes",
+    description: [
+      "· Formación en sistemas microinformáticos y redes, con prácticas en empresa.",
+      "· Administración de Windows Server y Linux.",
+      "· Gestión y arquitectura de redes.",
+      "· Asistencia para hardware TI.",
+      "· Diseño de redes y seguridad informática.",
+      "· Maquetación Web."
+    ],
+  },
+];
+---
+
+
+<div
+  id="education-modal"
+  class="hidden fixed inset-0 bg-black/50 backdrop-blur-md flex justify-center items-center z-50"
+>
+  <div
+    class="bg-black/70 shadow-lg shadow-white/30 p-6 rounded-lg w-full max-w-lg relative"
+  >
+  <h2 class="text-xl text-purple-300 text-center mb-4">Educación </h2>
+    <button class="close-modal absolute top-3 right-3 text-white text-2xl"
+      >&times;</button
+    >
+
+    <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
+      {
+        STUDY.map((studies) => (
+          <li class="mb-10 ms-4">
+            <LineaTempItem {...studies} />
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string;
-  description: string;
+  description: string[];
   link?: string;
   date: string;
 }
@@ -20,8 +20,14 @@ const { title, description, link, date } = Astro.props;
   {title}
 </h3>
 <p class="mb-4 text-base font-normal text-gray-120 text-pretty">
-  {description}
+  {description.map((item) => (
+    <>
+      {item}
+      <br />
+    </>
+  ))}
 </p>
+
 {
   link && (
     <a

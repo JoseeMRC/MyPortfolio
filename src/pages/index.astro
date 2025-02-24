@@ -1,15 +1,17 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Badge from '../components/Badge.astro';
-import LinkedInIcon from '../components/icons/LinkedIn.astro';
-import SocialPill from '../components/icons/SocialPill.astro';
-import GitHubIcon from '../components/icons/GitHub.astro';
-import MailIcon from '../components/icons/Mail.astro';
-import Experience from '../components/Experience.astro';
-import SectionContainer from '../components/SectionContainer.astro';
-import BriefCase from '../components/icons/BriefCase.astro';
-import CodeIcon from '../components/icons/Code.astro';
-import Projects from '../components/Projects.astro';
+import Layout from "../layouts/Layout.astro";
+import Badge from "../components/Badge.astro";
+import LinkedInIcon from "../components/icons/LinkedIn.astro";
+import SocialPill from "../components/icons/SocialPill.astro";
+import GitHubIcon from "../components/icons/GitHub.astro";
+import MailIcon from "../components/icons/Mail.astro";
+import BirreteIcon from "../components/icons/Birrete.astro";
+import Experience from "../components/Experience.astro";
+import SectionContainer from "../components/SectionContainer.astro";
+import BriefCase from "../components/icons/BriefCase.astro";
+import CodeIcon from "../components/icons/Code.astro";
+import Projects from "../components/Projects.astro";
+import EducationModal from "../components/EducationModal.astro";
 ---
 
 <Layout
@@ -17,39 +19,55 @@ import Projects from '../components/Projects.astro';
   description="Desarrollador Full Stack, creativo, resolutivo y comprometido."
 >
   <main class="px-4 md:px-8">
-    <SectionContainer id="sobre-mi"  class="py-32 md:py-44 pb-20 md:pb-32">
+    <SectionContainer id="sobre-mi" class="py-32 md:py-44 pb-20 md:pb-32">
       <div class="relative flex justify-center mb-20 md:mb-36">
-        <img 
-          src="/photo.webp" 
-          alt="Foto de perfil" 
+        <img
+          src="/photo.webp"
+          alt="Foto de perfil"
           class="absolute -top-12 md:-top-16 w-24 h-24 md:w-40 md:h-40 lg:w-48 lg:h-48 object-cover rounded-full shadow-lg shadow-white/50 hover:scale-110 transition-transform duration-300 ease-in-out"
-        >
+        />
       </div>
-      
-      <h1 class="text-white text-2xl md:text-3xl lg:text-5xl font-bold flex justify-center flex-wrap gap-x-4 pb-6 lg:pb-10 text-center">
-        Hola, soy Jose Manuel 
-        <a 
-          href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/" 
-          target="_blank" 
-          rel="noopener" 
+
+      <h1
+        class="text-white text-2xl md:text-3xl lg:text-5xl font-bold flex justify-center flex-wrap gap-x-4 pb-6 lg:pb-10 text-center"
+      >
+        Hola, soy Jose Manuel
+        <a
+          href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/"
+          target="_blank"
+          rel="noopener"
           class="flex justify-center items-center"
         >
           <Badge>Disponible para trabajar</Badge>
         </a>
       </h1>
-      
-      <h2 class="text-lg md:text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-center mx-auto">
+
+      <h2
+        class="text-lg md:text-xl lg:text-2xl opacity-80 text-wrap max-w-[700px] text-center mx-auto"
+      >
         <span class="text-green-400/90">+1 de un año de experiencia.</span>
         <span class="text-purple-300/90"> Desarrollador Web Full Stack.</span>
-        <br> Me considero una persona creativa, adaptable al cambio, resolutiva y con gran capacidad para trabajar en equipo. Además, soy una persona comprometida con los objetivos y responsbiliades que asumo.
+        <br /> Me considero una persona creativa, adaptable al cambio, resolutiva
+        y con gran capacidad para trabajar en equipo. Además, soy una persona comprometida
+        con los objetivos y responsbiliades que asumo.
         <span class="text-blue-400/90"> Resido en Málaga, España.</span>
       </h2>
 
       <nav class="flex gap-4 mt-8 flex-wrap justify-center">
+        <!-- Educacion -->
+        <SocialPill data-modal="open-education-modal">
+          <BirreteIcon class="size-4 md:size-5 lg:size-6" />
+          Educación
+        </SocialPill>
+
+        <!-- Modal de Educación -->
+        <EducationModal />
         <!-- LinkedIn -->
-        <SocialPill href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/">
+        <SocialPill
+          href="https://www.linkedin.com/in/jose-manuel-rodriguez-carrasco/"
+        >
           <LinkedInIcon class="size-4 md:size-5 lg:size-6" />
-          LinkedIn 
+          LinkedIn
         </SocialPill>
 
         <!-- GitHub -->
@@ -62,25 +80,72 @@ import Projects from '../components/Projects.astro';
         <SocialPill href="mailto:josemanuelrc.contact@gmail.com">
           <MailIcon class="size-4 md:size-5 lg:size-6" />
           Enviar Email
-        </SocialPill> 
+        </SocialPill>
       </nav>
     </SectionContainer>
 
     <SectionContainer id="experiencia">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center">
-        <BriefCase class="size-6 md:size-7"/>
+      <h2
+        class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center"
+      >
+        <BriefCase class="size-6 md:size-7" />
         Experiencia Laboral
       </h2>
       <Experience />
     </SectionContainer>
 
     <SectionContainer id="proyectos">
-      <h2 class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center">
-        <CodeIcon class="size-6 md:size-7"/>
+      <h2
+        class="text-2xl md:text-3xl font-semibold mb-6 flex gap-x-4 items-center"
+      >
+        <CodeIcon class="size-6 md:size-7" />
         Proyectos
       </h2>
       <Projects />
     </SectionContainer>
   </main>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Obtener el botón de abrir el modal de Educación
+    const educationModalButton = document.querySelector('[data-modal="open-education-modal"]');
+    
+    if (educationModalButton) {
+      educationModalButton.addEventListener('click', () => {
+        // Obtener el modal de educación por su ID
+        const modal = document.getElementById('education-modal');
+        if (modal) {
+          // Abrir el modal quitando la clase 'hidden'
+          modal.classList.remove('hidden');
+        } else {
+          console.error('No se encontró el modal con ID "education-modal"');
+        }
+      });
+    } else {
+      console.error('No se encontró el botón de "Educación"');
+    }
+  
+    // Cerrar el modal al hacer clic en el botón de cierre
+    document.querySelectorAll('.close-modal').forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.fixed');
+        if (modal) {
+          // Añadir la clase 'hidden' para ocultar el modal
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  
+    // Cerrar el modal si se hace clic fuera del contenido del modal
+    document.querySelectorAll('.fixed').forEach(modal => {
+      modal.addEventListener('click', (event) => {
+        if (event.target === modal) {
+          // Añadir la clase 'hidden' para ocultar el modal
+          modal.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
 

@@ -1,41 +1,41 @@
 ---
-import ExperienceItem from "./ExperienceItem.astro";
+import LineaTempItem from "./LineaTempItem.astro";
 
-const EXPERIENCiE = [
+const EXPERIENCIE = [
   {
     date: "Junio 2024 - Junio 2024",
     title: "Junior Full Stack Web Developer - Kakeibo",
-    description: "Desarollo de una app bancaria pra el ahorro, parte Frontend y Backend.",
+    description:[ "Desarollo de una app bancaria pra el ahorro, parte Frontend y Backend."],
   },
   {
     date: "Enero 2024 - Junio 2024",
     title: "Junior Full Stack Web Developer",
-    description: "Formación práctica con proyectos reales como Full Stack Web Developer.",
+    description:[ "Formación práctica con proyectos reales como Full Stack Web Developer."],
   },
   {
     date: "Noviembre 2023 - Enero 2024",
     title: "Vendedor - MediaMarkt",
-    description: "Reposición de productos en los lineales, mantenimiento del orden del establecimiento, stock y gestión de almacén, venta y asesoramiento al cliente.",
+    description: ["Reposición de productos en los lineales, mantenimiento del orden del establecimiento, stock y gestión de almacén, venta y asesoramiento al cliente."],
   },
   {
     date: "Enero 2023 - Marzo 2023",
     title: "Mozo de almacén - Primor",
-    description: "Preparación de pedidos, reposición de productos.",
+    description: ["Preparación de pedidos, reposición de productos."],
   },
   {
     date: "Noviembre 2021 - Noviembre 2022",
     title: "Técnico informático - CSMI",
     description: 
-    "Reparación y reacondicionamiento de portátiles y equipos de sobremesa, Montaje e instalación de equipos, Instalación de paquetes ofimáticos y Sistemas Operativos, Solución de problemas a usuarios de forma remota.",
+    ["Reparación y reacondicionamiento de portátiles y equipos de sobremesa, Montaje e instalación de equipos, Instalación de paquetes ofimáticos y Sistemas Operativos, Solución de problemas a usuarios de forma remota."],
   },
 ];
 ---
 
 <ol class="relative border-s border-gray-200 dark:border-gray-700 ml-3">
   {
-    EXPERIENCiE.map(experiencie =>  (
+    EXPERIENCIE.map(experiencie =>  (
       <li class="mb-10 ms-4">
-        <ExperienceItem {...experiencie} />
+        <LineaTempItem {...experiencie} />
       </li>
     ))
   }
