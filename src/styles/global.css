@@ -2,3 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Estilo del scroll personalizado */
+.custom-scroll::-webkit-scrollbar {
+  width: 6px; /* Grosor de la barra */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #2d2d2d; /* Color de fondo de la barra */
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #9333ea; /* Color del "thumb" (barra desplazable) */
+  border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #7e22ce; /* Color del thumb cuando se pasa el mouse */
+}
+
+/* Para Firefox */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #9333ea #2d2d2d;
+}

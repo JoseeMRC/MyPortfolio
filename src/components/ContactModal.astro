@@ -2,7 +2,6 @@
 import SocialPill from "./icons/SocialPill.astro";
 import LinkedInIcon from "./icons/LinkedIn.astro";
 import MailIcon from "./icons/Mail.astro";
-
 export interface Props {
   id?: string;
   title?: string;
@@ -16,10 +15,12 @@ const { id = "contact-modal", title = "Contacto" } = Astro.props;
   class="hidden fixed inset-0 bg-black/50 backdrop-blur-md flex justify-center items-center z-50"
 >
   <div
-    class="bg-black/70 shadow-lg shadow-white/30 p-4 sm:p-6 rounded-lg w-11/12 sm:max-w-lg max-h-[80vh] overflow-y-auto relative"
+    class="bg-black/70 shadow-lg shadow-white/30 p-4 sm:p-6 rounded-lg w-11/12 sm:max-w-lg max-h-[80vh] overflow-y-auto relative custom-scroll"
   >
-    <button class="close-modal absolute top-3 right-3 text-white text-2xl"
-      >&times;</button
+    <button class="close-modal absolute top-3 right-3 text-green-400/90 text-2xl"
+      >
+      &times;
+      </button
     >
 
     <h2 class="text-xl text-purple-300 text-center mb-4">{title}</h2>
@@ -36,7 +37,7 @@ const { id = "contact-modal", title = "Contacto" } = Astro.props;
       <!-- Mail -->
       <SocialPill href="mailto:00jmrc@gmail.com">
         <MailIcon class="size-4 md:size-5 lg:size-6" />
-        00jmrc@gmail.com
+        Enviar Email
       </SocialPill>
     </nav>
     <h3 class="text-green-400/90 mt-8">
@@ -98,6 +99,7 @@ const { id = "contact-modal", title = "Contacto" } = Astro.props;
     <p id="form-message" class="text-white mt-2"></p>
   </div>
 </div>
+
 
 
 <script>
